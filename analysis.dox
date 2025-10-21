@@ -128,7 +128,7 @@
  *
  * ---
  * \section analysis_takeaway Key Takeaway
- * Your analysis highlights an important concept in computational logic: the cost of canonical forms.
+ * Our analysis highlights an important concept in computational logic: the cost of canonical forms.
  *
  * \li \b Truth \b Table (Task 5): Checking validity using a truth table is exponential in the number of \b variables (**O(2^k)**).
  * \li \b CNF \b Conversion (Task 6): Converting a formula to CNF can be exponential in the \b size of the formula (**O(2^n)**) because the formula may grow drastically.

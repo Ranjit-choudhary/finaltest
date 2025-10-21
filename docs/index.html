@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Logic Assignment 1 Documentation</title>
+<title>My Project: Logic in CS Assignment 1 Documentation</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -19,6 +19,90 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
+<style>
+    /* --- Dark Theme Mainpage Styles --- */
+    
+    /* Use a container to give some padding */
+    .mainpage-container {
+        padding: 1.5rem;
+    }
+
+    /* Style each section as a "card" */
+    .mainpage-section-card {
+        /* Uses your existing dark theme variables from doxygen.css */
+        background-color: var(--nav-background-color, #101826); 
+        border: 1px solid var(--memdef-border-color, #233250); 
+        border-radius: 8px;
+        padding: 1.5rem 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Style the headings inside the cards */
+    .mainpage-section-card h1.doxsection {
+        color: var(--group-header-color, #90A5CE); /* Uses your bright heading color */
+        border-bottom: 1px solid var(--memdef-border-color, #233250);
+        margin-top: 0;
+        padding-bottom: 1rem;
+    }
+
+    /* Style paragraphs */
+    .mainpage-section-card p {
+        font-size: 1.1rem;
+        color: var(--page-foreground-color, #C9D1D9);
+        line-height: 1.6;
+    }
+    
+    /* Special list for authors */
+    .author-list {
+        list-style: none;
+        padding-left: 0;
+    }
+    .author-list li {
+        position: relative;
+        padding-left: 2rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+        color: var(--page-foreground-color, #C9D1D9);
+    }
+    /* Use a simple dot for authors */
+    .author-list li::before {
+        content: '•';
+        position: absolute;
+        left: 0.5rem;
+        color: var(--group-header-color, #90A5CE);
+        font-weight: bold;
+    }
+
+    /* Grid layout for tasks */
+    .task-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.25rem;
+        padding-left: 0;
+        list-style: none;
+    }
+    .task-grid li {
+        background-color: var(--memdef-proto-background-color, #19243A); /* Slightly different dark */
+        border: 1px solid var(--memdef-border-color, #233250);
+        border-radius: 6px;
+        padding: 1.5rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        transition: all 0.2s ease;
+        color: var(--page-foreground-color, #C9D1D9);
+    }
+    .task-grid li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        border-color: var(--page-link-color, #90A5CE);
+    }
+    .task-grid li b {
+        color: var(--page-link-color, #90A5CE);
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+</style>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
@@ -26,7 +110,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Logic Assignment 1
    </div>
   </td>
  </tr>
@@ -90,37 +174,50 @@ $(function(){initNavTree('index.html','',''); });
 <div><div class="header">
   <div class="headertitle"><div class="title">Logic Assignment 1 Documentation </div></div>
 </div><!--header-->
-<div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="authors"></a>
-Authors</h1>
-<ul>
-<li>Ranjit Choudhary (2023B1A71226H)</li>
-<li>Rishabh Singh (2023B4A70721H)</li>
-<li>Ritiwk Sethi (2023B1A71385H)</li>
-<li>Shreyansh Santosh Tiwari (2023B3A70524H)</li>
-</ul>
-<h1 class="doxsection"><a class="anchor" id="course"></a>
-Course</h1>
-<p>Logic in CS</p>
-<h1 class="doxsection"><a class="anchor" id="objective"></a>
-Objective</h1>
-<p>The main goal of this assignment is to implement a system that can read propositional logic formulas, tokenize them, convert them between infix, postfix, and prefix notations, build a parse tree, traverse the tree, compute properties such as height, convert to CNF, and perform validity checks. We also analyze execution time and memory usage.</p>
-<h1 class="doxsection"><a class="anchor" id="tasks"></a>
-Tasks:</h1>
-<ul>
-<li><b>Task</b> <b>1</b>: Convert infix expression to prefix expression</li>
-<li><b>Task</b> <b>2</b>: Build parse tree from prefix expression</li>
-<li><b>Task</b> <b>3</b>: Traverse parse tree to output infix expression</li>
-<li><b>Task</b> <b>4</b>: Compute height of parse tree</li>
-<li><b>Task</b> <b>5</b>: Evaluate truth value given atom assignments</li>
-<li><b>Task</b> <b>6</b>: Convert parse tree to equivalent CNF</li>
-<li><b>Task</b> <b>7</b>: Validity check of CNF formula</li>
-<li><b>Task</b> <b>8</b>: Analyze efficiency and memory usage</li>
-</ul>
-<h1 class="doxsection"><a class="anchor" id="testing"></a>
-Testing</h1>
-<p>For testing, we use SAT benchmark CNF files from the SAT Competition 2002 dataset. These files are in DIMACS CNF format. We process each clause, tokenize it, convert notations, and print the results. </p>
-</div></div><!-- PageDoc -->
+<div class="mainpage-container">
+
+    <section class="mainpage-section-card" id="authors-section">
+        <h1 class="doxsection"><a class="anchor" id="authors"></a>Authors</h1>
+        <ul class="author-list">
+            <li>Ranjith Choudhary (2023B1A71226H)</li>
+            <li>Rishabh Singh (2023B4A70721H)</li>
+            <li>Ritiwk Sethi (2023B1A71385H)</li>
+            <li>Shreyansh Santosh Tiwari (2023B3A70524H)</li>
+        </ul>
+    </section>
+
+    <section class="mainpage-section-card" id="course-section">
+        <h1 class="doxsection"><a class="anchor" id="course"></a>Course</h1>
+        <p>Logic in CS</p>
+    </section>
+
+    <section class="mainpage-section-card" id="objective-section">
+        <h1 class="doxsection"><a class="anchor" id="objective"></a>Objective</h1>
+        <p>The main goal of this assignment is to implement a system that can read propositional logic formulas, tokenize them, convert them between infix, postfix, and prefix notations, build a parse tree, traverse the tree, compute properties such as height, convert to CNF, and perform validity checks. We also analyze execution time and memory usage.</p>
+    </section>
+
+    <section class="mainpage-section-card" id="tasks-section">
+        <h1 class="doxsection"><a class="anchor" id="tasks"></a>Tasks</h1>
+        <ul class="task-grid">
+            <li><b>Task 1</b>: Convert infix expression to prefix expression</li>
+            <li><b>Task 2</b>: Build parse tree from prefix expression</li>
+            <li><b>Task 3</b>: Traverse parse tree to output infix expression</li>
+            <li><b>Task 4</b>: Compute height of parse tree</li>
+            <li><b>Task 5</b>: Evaluate truth value given atom assignments</li>
+            <li><b>Task 6</b>: Convert parse tree to equivalent CNF</li>
+            <li><b>Task 7</b>: Validity check of CNF formula</li>
+            <li><b>Task 8</b>: Analyze efficiency and memory usage</li>
+        </ul>
+    </section>
+
+    <section class="mainpage-section-card" id="testing-section">
+        <h1 class="doxsection"><a class="anchor" id="testing"></a>Testing</h1>
+        <p>For testing, we use SAT benchmark CNF files from the SAT Competition 2002 dataset. These files are in DIMACS CNF format. We process each clause, tokenize it, convert notations, and print the results.</p>
+    </section>
+
+</div>
+
+<!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 </div><!-- doc-content -->
