@@ -236,7 +236,7 @@ The parse tree creation allocates <b>N</b> nodes proportional to <b>n</b>, and t
 </li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="analysis_task3"></a>
-Task 3 &amp; 4: Tree Traversals (Tree **\to** Infix, Height)</h2>
+Task 3 &amp; 4: Tree Traversals (Tree to Infix, Height)</h2>
 <p>This includes <span class="tt"><a class="el" href="logic__parser_8cpp.html#a2bf1cb0da72ef303d1462e96c53120d4" title="Converts the expression parse tree back to a fully parenthesized infix string (in-order traversal).">toInfix()</a></span>, <span class="tt"><a class="el" href="logic__parser_8cpp.html#a358cd5a3631aef70e97afac5665f884e" title="Computes the height of the expression parse tree.">treeHeight()</a></span>, and <span class="tt"><a class="el" href="logic__parser_8cpp.html#a44ba00063f491516f8c06e89be003202" title="Traverses the parse tree to collect all unique propositional atoms.">collectAtoms()</a></span>.</p>
 <ul>
 <li><b>Output:</b> A string (<span class="tt">toInfix</span>), an integer (<span class="tt">treeHeight</span>), or a populated set (<span class="tt">collectAtoms</span>). </li>
@@ -344,11 +344,11 @@ Summary of Full Process</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><span class="tt">toInfix</span> / <span class="tt">treeHeight</span>  </td><td class="markdownTableBodyLeft">3, 4  </td><td class="markdownTableBodyLeft"><b>O(n)</b>  </td><td class="markdownTableBodyLeft"><b>O(n)</b>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><span class="tt">generateTruthTable</span>  </td><td class="markdownTableBodyLeft">5  </td><td class="markdownTableBodyLeft">**O(2^k\cdot n)**  </td><td class="markdownTableBodyLeft"><b>O(n)</b>  </td></tr>
+<td class="markdownTableBodyLeft"><span class="tt">generateTruthTable</span>  </td><td class="markdownTableBodyLeft">5  </td><td class="markdownTableBodyLeft">O(2^k &middot; n)</td><td class="markdownTableBodyLeft"><b>O(n)</b>  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><span class="tt">convertToCNF</span>  </td><td class="markdownTableBodyLeft">6  </td><td class="markdownTableBodyLeft"><b>O(2^n)</b>  </td><td class="markdownTableBodyLeft"><b>O(2^n)</b>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><span class="tt">analyzeCNFValidity</span>  </td><td class="markdownTableBodyLeft">7  </td><td class="markdownTableBodyLeft">**O(C\cdot L^2)** (on CNF, not <b>n</b>)  </td><td class="markdownTableBodyLeft"><b>O(N_{cnf})</b> (on CNF, not <b>n</b>)  </td></tr>
+<td class="markdownTableBodyLeft"><span class="tt">analyzeCNFValidity</span>  </td><td class="markdownTableBodyLeft">7  </td><td class="markdownTableBodyLeft"><b>O(N<sub>cnf</sub>)</b> (on CNF, not <b>n</b>)  </td><td class="markdownTableBodyLeft"><b><b>O(N<sub>cnf</sub>)</b> (on CNF, not <b>n</b>)  </td></tr>
 </table>
 <hr  />
  <h1 class="doxsection"><a class="anchor" id="analysis_takeaway"></a>
