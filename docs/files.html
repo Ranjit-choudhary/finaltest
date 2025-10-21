@@ -18,6 +18,79 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<style>
+    div.contents {
+        padding: 1.5rem 2.5rem;
+    }
+
+    .header .title {
+        font-size: 1.75rem;
+        color: var(--group-header-color, #90A5CE);
+        border-bottom: 1px solid var(--memdef-border-color, #233250);
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+    }
+
+    div.textblock {
+        font-size: 1.1rem;
+        color: var(--page-foreground-color, #C9D1D9);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    table.directory {
+        border-collapse: separate;
+        border-spacing: 0 1rem;
+        width: 100%;
+    }
+
+    table.directory td.entry,
+    table.directory td.desc {
+        background-color: var(--nav-background-color, #101826);
+        border: 1px solid var(--memdef-border-color, #233250);
+        padding: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        vertical-align: middle;
+        transition: all 0.2s ease;
+    }
+
+    table.directory tr:hover td.entry,
+    table.directory tr:hover td.desc {
+        border-color: var(--page-link-color, #90A5CE);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    table.directory td.entry {
+        border-right: none;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    table.directory td.desc {
+        border-left: none;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        color: var(--page-foreground-color, #C9D1D9);
+        font-size: 1.1rem;
+    }
+
+    table.directory a.el {
+        color: var(--page-link-color, #90A5CE);
+        text-decoration: none;
+        font-size: 1.15rem;
+    }
+    table.directory a.el:hover {
+        text-decoration: underline;
+    }
+    
+    table.directory .icondoc {
+        margin-right: 0.5rem;
+    }
+</style>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,7 +99,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Logic in CS Assignment 1
    </div>
   </td>
  </tr>

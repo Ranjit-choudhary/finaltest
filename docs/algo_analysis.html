@@ -18,6 +18,104 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<style>
+    div.contents {
+        padding: 1.5rem 2.5rem;
+    }
+
+    .contents h1.doxsection {
+        color: var(--group-header-color, #90A5CE);
+        border-bottom: 1px solid var(--memdef-border-color, #233250);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+    }
+    .contents h2.doxsection {
+        color: var(--page-foreground-color, #C9D1D9);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    div.contents p, div.contents li {
+        font-size: 1.1rem;
+        color: var(--page-foreground-color, #C9D1D9);
+        line-height: 1.7;
+    }
+    div.contents ul {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        list-style: disc;
+        padding-left: 2rem;
+    }
+    div.contents li {
+        margin-bottom: 0.5rem;
+    }
+
+    span.tt, a.el {
+        font-family: var(--font-family-monospace, monospace);
+        background-color: var(--memdef-proto-background-color, #19243A);
+        border: 1px solid var(--memdef-border-color, #233250);
+        border-radius: 4px;
+        padding: 0.2em 0.4em;
+        font-size: 0.9em;
+    }
+    a.el {
+        color: var(--page-link-color, #90A5CE);
+        font-weight: bold;
+    }
+    a.el:hover {
+        text-decoration: underline;
+    }
+
+    table.markdownTable {
+        border: 1px solid var(--table-cell-border-color, #283A5D);
+        border-radius: 8px;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 2rem 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    table.markdownTable th {
+        background-color: var(--table-header-background-color, #283A5D);
+        color: var(--table-header-foreground-color, #C4CFE5);
+        font-size: 1.1rem;
+        padding: 0.75rem 1rem;
+    }
+    table.markdownTable td {
+        background-color: var(--nav-background-color, #101826);
+        padding: 0.75rem 1rem;
+        border-top: 1px solid var(--table-cell-border-color, #283A5D);
+    }
+    table.markdownTable td b {
+        color: var(--page-foreground-color, #C9D1D9);
+    }
+
+    dl.section.note {
+        background: var(--note-color-bg, #3b2e04);
+        border-left: 8px solid var(--note-color-hl, #f1b602);
+        color: var(--note-color-text, #ceb670);
+        padding: 1.5rem 2rem;
+        border-radius: 4px;
+    }
+    dl.section.note dt {
+        color: var(--note-color-hl, #f1b602);
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+    dl.section.note dd {
+        margin-left: 0;
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    hr {
+        height: 1px;
+        border: none;
+        background-color: var(--memdef-border-color, #233250);
+        margin: 3rem 0;
+    }
+</style>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,7 +124,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Logic in CS Assignment 1
    </div>
   </td>
  </tr>
