@@ -1,0 +1,34 @@
+/**
+ * \mainpage Logic Assignment 1 Documentation
+ *
+ * \section authors Authors
+ * - Ranjith Chowdhary (2023B1A71226H)
+ * - Rishabh Singh (2023B4A70721H)
+ * - Ritiwk Sethi (2023B1A71385H)
+ * - Shreyansh Santosh Tiwari (2023B3A70524H)
+ *
+ * \section course Course
+ * Logic in CS
+ *
+ *
+ * \section objective Objective
+ * The main goal of this assignment is to implement a system that can read propositional logic formulas, 
+ * tokenize them, convert them between infix, postfix, and prefix notations, build a parse tree, 
+ * traverse the tree, compute properties such as height, convert to CNF, and perform validity checks. 
+ * We also analyze execution time and memory usage.
+ *
+ * \section tasks Tasks:
+ * - \b Task \b 1: Convert infix expression to prefix expression
+ * - \b Task \b 2: Build parse tree from prefix expression
+ * - \b Task \b 3: Traverse parse tree to output infix expression
+ * - \b Task \b 4: Compute height of parse tree
+ * - \b Task \b 5: Evaluate truth value given atom assignments
+ * - \b Task \b 6: Convert parse tree to equivalent CNF
+ * - \b Task \b 7: Validity check of CNF formula
+ * - \b Task \b 8: Analyze efficiency and memory usage
+ *
+ * \section testing Testing
+ * For testing, we use SAT benchmark CNF files from the SAT Competition 2002 dataset. 
+ * These files are in DIMACS CNF format. We process each clause, tokenize it, 
+ * convert notations, and print the results.
+ */

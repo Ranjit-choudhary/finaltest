@@ -1,0 +1,65 @@
+# Doxyfile for Logic Assignment 1
+# This file configures Doxygen for your project.
+
+# ---------------------------------------------------------------------------
+# Project related configuration options
+# ---------------------------------------------------------------------------
+PROJECT_NAME           = "Logic Assignment 1"
+PROJECT_BRIEF          = "A C++ propositional logic parser and analyzer."
+OUTPUT_DIRECTORY       = html
+CREATE_SUBDIRS         = YES
+
+# ---------------------------------------------------------------------------
+# Input files configuration
+# ---------------------------------------------------------------------------
+# Tell Doxygen what files to scan.
+# We list all three files we created:
+INPUT                  = logic_parser.cpp \
+                         mainpage.dox \
+                         analysis.dox
+                         
+# Scan subdirectories for files
+RECURSIVE              = YES
+
+# ---------------------------------------------------------------------------
+# Source browsing and extraction
+# ---------------------------------------------------------------------------
+# Extract all documented entities, including private members
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+OPTIMIZE_OUTPUT_FOR_C  = YES
+
+# ---------------------------------------------------------------------------
+# HTML output configuration
+# ---------------------------------------------------------------------------
+# Tell Doxygen to generate HTML
+GENERATE_HTML          = YES
+# Set the output folder name
+HTML_OUTPUT            = html
+
+# This adds the collapsible treeview to the side panel
+# (like in your original screenshot)
+GENERATE_TREEVIEW      = YES
+
+# --- THIS IS THE FIX for your $dollar$ sign problem ---
+# Enable MathJax to render LaTeX formulas
+USE_MATHJAX            = YES
+FORMULA_TRANSPARENT    = YES
+#---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# LaTeX output configuration
+# ---------------------------------------------------------------------------
+# We don't need PDF/LaTeX output, so we disable it to speed up builds
+GENERATE_LATEX         = NO
+
+# ---------------------------------------------------------------------------
+# Diagram (Graphviz) configuration
+# ---------------------------------------------------------------------------
+# Set to YES if you install Graphviz (https://graphviz.org/)
+# This will generate beautiful function call graphs.
+HAVE_DOT               = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+UML_LOOK               = YES

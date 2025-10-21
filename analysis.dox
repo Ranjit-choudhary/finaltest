@@ -1,0 +1,137 @@
+/**
+ * \page algo_analysis Algorithmic Analysis
+ * \brief A detailed look at algorithm complexity, efficiency, and memory usage.
+ *
+ * \section analysis_intro A Detailed Look at Algorithmic Complexity
+ * A detailed look at your algorithms regarding their output, efficiency (time complexity), and memory usage (space complexity).
+ *
+ * \subsection analysis_vars Variables Used in Analysis
+ * \li **n**: The number of tokens in the initial infix expression. This measures the input size.
+ * \li **N**: The number of nodes in the parse tree. **N** is directly proportional to **n**, so **O(N)** is the same as **O(n)**.
+ * \li **h**: The height of the parse tree.
+ * <ul>
+ * <li><b>Best/Average Case (balanced tree):</b> **h = O(\log n)**</li>
+ * <li><b>Worst Case (unbalanced tree, e.g., `a + (b + (c + ...))`):</b> **h = O(n)**</li>
+ * </ul>
+ * \li **k**: The number of unique propositional atoms (variables) in the expression (**k \le n**).
+ * \li **N_{cnf}**: The number of nodes in the *final* CNF parse tree. This can be much larger than **n**.
+ * \li **C**: The number of clauses in the final CNF.
+ * \li **L**: The maximum number of literals in a single clause in the CNF.
+ *
+ * ---
+ * \section analysis_tasks Task-by-Task Complexity Breakdown
+ *
+ * \subsection analysis_task1 Task 1 & 2: Parsing (Infix **\to** Prefix **\to** Tree)
+ * This includes `tokenize()`, `infixToPrefix()`, and `buildParseTree()`.
+ *
+ * \li \b Output: The root `Node*` of a complete parse tree representing the logic formula.
+ * \li \b Time \b Complexity: **O(n)**
+ * <ul>
+ * <li>`tokenize()`: This function scans the input string once. The time is proportional to the number of tokens, **O(n)**.</li>
+ * <li>`infixToPrefix()`: This uses a modified Shunting-yard algorithm. Each token is processed, pushed, and popped from the stack at most once. The reverse operations also take **O(n)**. Total time is **O(n)**.</li>
+ * <li>`buildParseTree()`: This processes the prefix tokens in reverse order. Each token involves constant-time stack operations. Total time is **O(n)**.</li>
+ * </ul>
+ * \li \b Space \b Complexity: **O(n)**
+ * <ul>
+ * <li>The token list, output list, and operator stack each take up to **O(n)** space.</li>
+ * <li>The parse tree creation allocates **N** nodes proportional to **n**, and the stack for construction can also reach **O(n)**.</li>
+ * </ul>
+ *
+ * \subsection analysis_task3 Task 3 & 4: Tree Traversals (Tree **\to** Infix, Height)
+ * This includes `toInfix()`, `treeHeight()`, and `collectAtoms()`.
+ *
+ * \li \b Output: A string (`toInfix`), an integer (`treeHeight`), or a populated set (`collectAtoms`).
+ * \li \b Time \b Complexity: **O(n)**
+ * <ul>
+ * <li>These are recursive traversals that visit every node once.</li>
+ * </ul>
+ * \li \b Space \b Complexity: **O(h)**, which is **O(n)** in the worst case.
+ * <ul>
+ * <li>Depends on the recursion depth.</li>
+ * <li><b>Best Case (balanced tree):</b> **O(\log n)**</li>
+ * <li><b>Worst Case (unbalanced tree):</b> **O(n)**</li>
+ * </ul>
+ *
+ * \subsection analysis_task5 Task 5: Evaluation (Truth Table)
+ * This includes `evaluate()` and `generateTruthTable()`.
+ *
+ * \li \b Output: A boolean result (`evaluate`) or a printed table (`generateTruthTable`).
+ *
+ * <b>`evaluate()` (single run)</b>
+ * \li \b Time \b Complexity: **O(n)**. It recursively visits each node once.
+ * \li \b Space \b Complexity: **O(h)**, which is **O(n)** in the worst case.
+ *
+ * <b>`generateTruthTable()` (full analysis)</b>
+ * \li \b Time \b Complexity: **O(2^k \cdot n)**
+ * <ul>
+ * <li>It checks all **2^k** possible truth assignments.</li>
+ * <li>For each assignment, it calls `evaluateNode()` which takes **O(n)** time.</li>
+ * </ul>
+ * \li \b Space \b Complexity: **O(n)**
+ * <ul>
+ * <li>The main structures are the atoms list (**O(k)**), assignment map (**O(k)**), and recursion stack (**O(h)**).</li>
+ * <li>Overall, the space remains **O(n)** in the worst case.</li>
+ * </ul>
+ *
+ * \subsection analysis_task6 Task 6: CNF Conversion
+ * This includes `eliminateImplications()`, `moveNegations()`, and `distributeOrOverAnd()`.
+ *
+ * \li \b Output: A new parse tree (or modified one) representing the formula in CNF.
+ *
+ * <b>`eliminateImplications()` and `moveNegations()`</b>
+ * \li \b Time \b Complexity: **O(n)**. Each is a single-pass traversal doing constant work per node.
+ * \li \b Space \b Complexity: **O(h)**, which is **O(n)** in the worst case.
+ *
+ * <b>`distributeOrOverAnd()`</b>
+ * \li \b Time \b Complexity: **O(2^n)** (Exponential)
+ * <ul>
+ * <li>Applying the distributive law can exponentially expand the formula.</li>
+ * <li>For instance, converting a DNF formula like **(a_1 * b_1) + (a_2 * b_2) + \dots + (a_k * b_k)** to CNF results in about **2^k** clauses.</li>
+ * </ul>
+ * \li \b Space \b Complexity: **O(2^n)**
+ * <ul>
+ * <li>The large new parse tree requires exponential memory.</li>
+ * </ul>
+ *
+ * \subsection analysis_task7 Task 7: CNF Validity Check
+ * This includes `collectClauses()` and `analyzeCNFValidity()`. This analysis focuses on the CNF tree (**N_{cnf}**, **C**, **L**), not the original **n**.
+ *
+ * \li \b Output: A boolean result (`true` if the CNF is a tautology).
+ *
+ * <b>`collectClauses()`</b>
+ * \li \b Time \b Complexity: **O(N_{cnf})**. Traverses the entire CNF tree.
+ * \li \b Space \b Complexity: **O(N_{cnf})**. Stores all literals in a vector of vectors proportional to **N_{cnf}**.
+ *
+ * <b>`analyzeCNFValidity()`</b>
+ * \li \b Time \b Complexity: **O(C \cdot L^2)**
+ * <ul>
+ * <li>Iterates through **C** clauses.</li>
+ * <li>Each clause has **L** literals, and checking or inserting each literal in a `std::set` can take time proportional to **L**.</li>
+ * <li>So, total time is **O(C \cdot L^2)**.</li>
+ * </ul>
+ * \li \b Space \b Complexity: **O(L)**
+ * <ul>
+ * <li>The main extra memory is the `std::set` holding literals in a single clause.</li>
+ * </ul>
+ *
+ * ---
+ * \section analysis_summary Summary of Full Process
+ *
+ * | Algorithm | Task | Time Complexity (Worst Case) | Space Complexity (Worst Case) |
+ * | :--- | :--- | :--- | :--- |
+ * | `infixToPrefix` | 1 | **O(n)** | **O(n)** |
+ * | `buildParseTree` | 2 | **O(n)** | **O(n)** |
+ * | `toInfix` / `treeHeight` | 3, 4 | **O(n)** | **O(n)** |
+ * | `generateTruthTable` | 5 | **O(2^k\cdot n)**  | **O(n)** |
+ * | `convertToCNF` | 6 | **O(2^n)** | **O(2^n)** |
+ * | `analyzeCNFValidity` | 7 | **O(C\cdot L^2)** (on CNF, not **n**) | **O(N_{cnf})** (on CNF, not **n**) |
+ *
+ * ---
+ * \section analysis_takeaway Key Takeaway
+ * Your analysis highlights an important concept in computational logic: the cost of canonical forms.
+ *
+ * \li \b Truth \b Table (Task 5): Checking validity using a truth table is exponential in the number of \b variables (**O(2^k)**).
+ * \li \b CNF \b Conversion (Task 6): Converting a formula to CNF can be exponential in the \b size of the formula (**O(2^n)**) because the formula may grow drastically.
+ *
+ * \note This explains why the SAT problem (checking satisfiability) is difficult. Although checking validity on an \e ready CNF is relatively fast (polynomial in **C** and **L**), converting to CNF in the first place is the computationally expensive step.
+ */
