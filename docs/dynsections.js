@@ -22,7 +22,70 @@
 
  @licend  The above is the entire license notice for the JavaScript code in this file
  */
+/* --- START OF CUSTOM SCRIPTS --- */
+$(function() {
+    
+    // --- 1. Add Theme Toggle Button ---
+    var toggleButton = '<div id="theme-toggle-container"><button id="theme-toggle-btn"></button></div>';
+    $('#titlearea').prepend(toggleButton);
 
+    var btn = $('#theme-toggle-btn');
+    var html = $('html');
+
+    // On page load, check stored preference
+    var currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        html.addClass('force-dark-mode');
+        html.removeClass('dark-mode'); // Doxygen's light-force class
+    } else {
+        // Default to light (or stored 'light')
+        html.addClass('dark-mode'); // This class disables the browser's auto-dark-mode
+        html.removeClass('force-dark-mode');
+    }
+
+    // Handle button click
+    btn.on('click', function() {
+        if (html.hasClass('force-dark-mode')) {
+            // Switch to Light Mode
+            html.removeClass('force-dark-mode');
+            html.addClass('dark-mode'); // Add Doxygen's override
+            localStorage.setItem('theme', 'light');
+        } else {
+            // Switch to Dark Mode
+            html.addClass('force-dark-mode');
+            html.removeClass('dark-mode'); // Remove Doxygen's override
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+
+    // --- 2. Make Globals List Clickable ---
+    // Check if we are on a globals page and add a class to the <ul>
+    if (window.location.pathname.endsWith('globals.html') || window.location.pathname.endsWith('globals_func.html')) {
+        $('div.contents > ul').addClass('globals-list');
+    }
+    
+    // Add click listener to the new list items
+    $('ul.globals-list li').on('click', function(e) {
+        if (e.target.tagName.toLowerCase() !== 'a') {
+            var link = $(this).find('a.el').attr('href');
+            if (link) {
+                window.location.href = link;
+            }
+        }
+    });
+    
+    // --- 3. Make File List Clickable ---
+    $('table.directory tr').on('click', function(e) {
+        if (e.target.tagName.toLowerCase() !== 'a') {
+            var link = $(this).find('a.el').attr('href');
+            if (link) {
+                window.location.href = link;
+            }
+        }
+    });
+
+});
+/* --- END OF CUSTOM SCRIPTS --- */
 function toggleVisibility(linkObj) {
   return dynsection.toggleVisibility(linkObj);
 }

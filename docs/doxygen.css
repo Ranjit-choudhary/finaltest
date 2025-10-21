@@ -1,5 +1,444 @@
 /* The standard CSS for doxygen 1.14.0*/
+/* --- START OF CUSTOM STYLES --- */
 
+/* --- 1. Global Page Structure --- */
+div.contents {
+    padding: 1.5rem 2.5rem;
+}
+
+.header .title {
+    font-size: 1.75rem;
+    color: var(--group-header-color, #90A5CE);
+    border-bottom: 1px solid var(--memdef-border-color, #233250);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+}
+
+div.textblock {
+    font-size: 1.1rem;
+    color: var(--page-foreground-color, #C9D1D9);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* --- 2. Typography and Links --- */
+div.contents p, div.contents li {
+    font-size: 1.1rem;
+    color: var(--page-foreground-color, #C9D1D9);
+    line-height: 1.7;
+}
+div.contents ul {
+    list-style: disc;
+    padding-left: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+div.contents li {
+    margin-bottom: 0.5rem;
+}
+span.tt, a.el {
+    font-family: var(--font-family-monospace, monospace);
+    background-color: var(--memdef-proto-background-color, #19243A);
+    border: 1px solid var(--memdef-border-color, #233250);
+    border-radius: 4px;
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+}
+a.el {
+    color: var(--page-link-color, #90A5CE);
+    font-weight: bold;
+}
+a.el:hover { text-decoration: underline; }
+hr {
+    height: 1px;
+    border: none;
+    background-color: var(--memdef-border-color, #233250);
+    margin: 3rem 0;
+}
+
+/* --- 3. Index Page Cards (for index.html) --- */
+.mainpage-container {
+    padding: 1.5rem;
+}
+.mainpage-section-card {
+    background-color: var(--nav-background-color, #101826); 
+    border: 1px solid var(--memdef-border-color, #233250); 
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.mainpage-section-card h1.doxsection {
+    color: var(--group-header-color, #90A5CE);
+    border-bottom: 1px solid var(--memdef-border-color, #233250);
+    margin-top: 0;
+    padding-bottom: 1rem;
+}
+.mainpage-section-card p {
+    font-size: 1.1rem;
+    color: var(--page-foreground-color, #C9D1D9);
+    line-height: 1.6;
+}
+.author-list {
+    list-style: none; padding-left: 0;
+}
+.author-list li {
+    position: relative;
+    padding-left: 2rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+.author-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0.5rem;
+    color: var(--group-header-color, #90A5CE);
+    font-weight: bold;
+}
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem;
+    padding-left: 0;
+    list-style: none;
+}
+.task-grid li {
+    background-color: var(--memdef-proto-background-color, #19243A);
+    border: 1px solid var(--memdef-border-color, #233250);
+    border-radius: 6px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+.task-grid li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-color: var(--page-link-color, #90A5CE);
+}
+.task-grid li b {
+    color: var(--page-link-color, #90A5CE);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* --- 4. Table Styles (for algo_analysis.html & files.html) --- */
+table.markdownTable {
+    border: 1px solid var(--table-cell-border-color, #283A5D);
+    border-radius: 8px;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+table.markdownTable th {
+    background-color: var(--table-header-background-color, #283A5D);
+    color: var(--table-header-foreground-color, #C4CFE5);
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+}
+table.markdownTable td {
+    background-color: var(--nav-background-color, #101826);
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--table-cell-border-color, #283A5D);
+}
+table.markdownTable td b {
+    color: var(--page-foreground-color, #C9D1D9);
+}
+dl.section.note {
+    background: var(--note-color-bg, #3b2e04);
+    border-left: 8px solid var(--note-color-hl, #f1b602);
+    color: var(--note-color-text, #ceb670);
+    padding: 1.5rem 2rem;
+    border-radius: 4px;
+}
+dl.section.note dt {
+    color: var(--note-color-hl, #f1b602);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+dl.section.note dd {
+    margin-left: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+table.directory {
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+    width: 100%;
+}
+table.directory td.entry,
+table.directory td.desc {
+    background-color: var(--nav-background-color, #101826);
+    border: 1px solid var(--memdef-border-color, #233250);
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    vertical-align: middle;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+table.directory tr:hover td.entry,
+table.directory tr:hover td.desc {
+    border-color: var(--page-link-color, #90A5CE);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+table.directory td.entry {
+    border-right: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+table.directory td.desc {
+    border-left: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-size: 1.1rem;
+}
+table.directory a.el {
+    font-size: 1.15rem;
+}
+
+/* --- 5. Globals List (globals.html) --- */
+div.contents ul.globals-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 2rem;
+}
+div.contents ul.globals-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    font-family: var(--font-family-monospace, monospace);
+    font-size: 1.1rem;
+    font-weight: 500;
+    word-break: break-all;
+    cursor: pointer;
+}
+div.contents ul.globals-list li a.el {
+    font-family: var(--base-font-family, sans-serif);
+    font-size: 1rem;
+    font-weight: normal;
+    white-space: nowrap;
+    margin-left: 1rem;
+}
+
+/* --- 6. Theme Toggle Button --- */
+#theme-toggle-container {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 1000;
+}
+#theme-toggle-btn {
+    background-color: var(--nav-background-color, #101826);
+    color: var(--page-foreground-color, #C9D1D9);
+    border: 1px solid var(--memdef-border-color, #233250);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+#theme-toggle-btn:hover {
+    border-color: var(--page-link-color, #90A5CE);
+    color: var(--page-link-color, #90A5CE);
+}
+#theme-toggle-btn::before {
+    content: '🌙'; /* Default: Moon */
+}
+html.force-dark-mode #theme-toggle-btn::before {
+    content: '☀️'; /* Sun */
+}
+
+/* --- 7. Force Dark Mode Class --- */
+html.force-dark-mode {
+    color-scheme: dark;
+    --page-background-color: black;
+    --page-foreground-color: #C9D1D9;
+    --page-link-color: #90A5CE;
+    --page-visited-link-color: #90A5CE;
+    --page-external-link-color: #A3B4D7;
+    --index-odd-item-bg-color: #0B101A;
+    --index-even-item-bg-color: black;
+    --index-header-color: #C4CFE5;
+    --index-separator-color: #334975;
+    --header-background-color: #070B11;
+    --header-separator-color: #141C2E;
+    --group-header-separator-color: #1D2A43;
+    --group-header-color: #90A5CE;
+    --inherit-header-color: #A0A0A0;
+    --footer-foreground-color: #5B7AB7;
+    --footer-logo-width: 60px;
+    --citation-label-color: #90A5CE;
+    --glow-color: cyan;
+    --title-background-color: #090D16;
+    --title-separator-color: #212F4B;
+    --directory-separator-color: #283A5D;
+    --separator-color: #283A5D;
+    --blockquote-background-color: #101826;
+    --blockquote-border-color: #283A5D;
+    --scrollbar-thumb-color: #2C3F65;
+    --scrollbar-background-color: #070B11;
+    --icon-background-color: #334975;
+    --icon-foreground-color: #C4CFE5;
+    --icon-folder-open-fill-color: #4665A2;
+    --icon-folder-fill-color: #5373B4;
+    --icon-folder-border-color: #C4CFE5;
+    --icon-doc-fill-color: #6884BD;
+    --icon-doc-border-color: #C4CFE5;
+    --memdecl-background-color: #0B101A;
+    --memdecl-separator-color: #2C3F65;
+    --memdecl-foreground-color: #BBB;
+    --memdecl-template-color: #7C95C6;
+    --memdecl-border-color: #233250;
+    --memdef-border-color: #233250;
+    --memdef-title-background-color: #1B2840;
+    --memdef-proto-background-color: #19243A;
+    --memdef-proto-text-color: #9DB0D4;
+    --memdef-doc-background-color: black;
+    --memdef-param-name-color: #D28757;
+    --memdef-template-color: #7C95C6;
+    --table-cell-border-color: #283A5D;
+    --table-header-background-color: #283A5D;
+    --table-header-foreground-color: #C4CFE5;
+    --label-background-color: #354C7B;
+    --label-left-top-border-color: #4665A2;
+    --label-right-bottom-border-color: #283A5D;
+    --label-foreground-color: #CCCCCC;
+    --nav-background-color: #101826;
+    --nav-foreground-color: #364D7C;
+    --nav-border-color: #212F4B;
+    --nav-breadcrumb-separator-color: #212F4B;
+    --nav-breadcrumb-active-bg: #1D2A43;
+    --nav-breadcrumb-color: #90A5CE;
+    --nav-breadcrumb-border-color: #2A3D61;
+    --nav-splitbar-bg-color: #283A5D;
+    --nav-splitbar-handle-color: #4665A2;
+    --nav-text-normal-color: #B6C4DF;
+    --nav-text-hover-color: #DCE2EF;
+    --nav-text-active-color: #DCE2EF;
+    --nav-menu-button-color: #B6C4DF;
+    --nav-menu-background-color: #05070C;
+    --nav-menu-foreground-color: #BBBBBB;
+    --nav-menu-active-bg: #1D2A43;
+    --nav-menu-active-color: #C9D3E7;
+    --nav-menu-toggle-color: rgba(255, 255, 255, 0.2);
+    --nav-arrow-color: #4665A2;
+    --nav-arrow-selected-color: #6884BD;
+    --sync-icon-border-color: #212F4B;
+    --sync-icon-background-color: #101826;
+    --sync-icon-selected-background-color: #1D2A43;
+    --sync-icon-color: #4665A2;
+    --sync-icon-selected-color: #5373B4;
+    --toc-background-color: #151E30;
+    --toc-border-color: #202E4A;
+    --toc-header-color: #A3B4D7;
+    --search-background-color: black;
+    --search-foreground-color: #C5C5C5;
+    --search-active-color: #F5F5F5;
+    --search-filter-background-color: #101826;
+    --search-filter-foreground-color: #90A5CE;
+    --search-filter-backdrop-filter: none;
+    --search-filter-border-color: #7C95C6;
+    --search-filter-highlight-text-color: #BCC9E2;
+    --search-filter-highlight-bg-color: #283A5D;
+    --search-results-background-color: black;
+    --search-results-foreground-color: #90A5CE;
+    --search-results-backdrop-filter: none;
+    --search-results-border-color: #334975;
+    --search-box-border-color: #334975;
+    --search-close-icon-bg-color: #909090;
+    --search-close-icon-fg-color: black;
+    --code-keyword-color: #CC99CD;
+    --code-type-keyword-color: #AB99CD;
+    --code-flow-keyword-color: #E08000;
+    --code-comment-color: #717790;
+    --code-preprocessor-color: #65CABE;
+    --code-string-literal-color: #7EC699;
+    --code-char-literal-color: #00E0F0;
+    --code-link-color: #79C0FF;
+    --code-external-link-color: #79C0FF;
+    --fragment-foreground-color: #C9D1D9;
+    --fragment-background-color: #090D16;
+    --fragment-border-color: #30363D;
+    --fragment-lineno-border-color: #30363D;
+    --fragment-lineno-background-color: black;
+    --fragment-lineno-foreground-color: #6E7681;
+    --fragment-copy-ok-color: #0EA80E;
+    --tooltip-foreground-color: #C9D1D9;
+    --tooltip-background-color: #202020;
+    --tooltip-arrow-background-color: #202020;
+    --tooltip-backdrop-filter: none;
+    --tooltip-border-color: #C9D1D9;
+    --tooltip-doc-color: #D9E1E9;
+    --tooltip-declaration-color: #20C348;
+    --tooltip-link-color: #79C0FF;
+    --tooltip-shadow: none;
+    --fold-line-color: #808080;
+    --warning-color-bg: #2e1917;
+    --warning-color-hl: #ad2617;
+    --warning-color-text: #f5b1aa;
+    --note-color-bg: #3b2e04;
+    --note-color-hl: #f1b602;
+    --note-color-text: #ceb670;
+    --todo-color-bg: #163750;
+    --todo-color-hl: #1982D2;
+    --todo-color-text: #dcf0fa;
+    --test-color-bg: #121258;
+    --test-color-hl: #4242cf;
+    --test-color-text: #c0c0da;
+    --deprecated-color-bg: #2e323b;
+    --deprecated-color-hl: #738396;
+    --deprecated-color-text: #abb0bd;
+    --bug-color-bg: #2a2536;
+    --bug-color-hl: #7661b3;
+    --bug-color-text: #ae9ed6;
+    --invariant-color-bg: #303a35;
+    --invariant-color-hl: #76ce96;
+    --invariant-color-text: #cceed5;
+}
+
+/* --- 8. Responsive (Phone) Adjustments --- */
+@media (max-width: 768px) {
+    div.contents {
+        padding: 1rem;
+    }
+    div.contents ul.globals-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+    div.contents ul.globals-list li a.el {
+        margin-left: 0;
+        margin-top: 0.75rem;
+    }
+    table.directory td.entry,
+    table.directory td.desc {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    table.directory td.entry {
+        border-bottom: none;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 0;
+    }
+    table.directory td.desc {
+        border-top: none;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 8px;
+    }
+}
+/* --- END OF CUSTOM STYLES --- */
 html {
 /* page base colors */
 --page-background-color: white;
